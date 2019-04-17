@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
     
     var getToken = GetToken()
-//    var res: [result] = []
+    var res: [result] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,36 +60,59 @@ class ViewController: UIViewController {
                     print(error)
                 }
             }
+            self.getLogin()
         }
         task.resume()
 //        getLogin()
     }
     
-//    func getLogin() {
+    func getLogin() {
+        print("\nStarted get login---->>>>>\n")
 //        let urlPath: String = "https://profile.intra.42.fr/users/vlikhotk"
-//        let url = URL(string: urlPath)
-//        let request: NSMutableURLRequest = NSMutableURLRequest(url: url!)
-//        request.httpMethod = "GET"
-//        if getToken.token != nil {
-//            request.setValue("Bearer " + getToken.token!, forHTTPHeaderField: "Authorization")
-//            let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-//                if let response = response {
-//                    print("Response--->>>\n")
-//                    print(response)
-//                }
-//                guard let data = data else { return }
-//                do {
-//                    let json : [NSDictionary] = (try JSONSerialization.jsonObject(with: data, options: [] as? [NSDictionary]))!
-//                    print("\nJSON----->>>>>\n")
-//                    DispatchQueue.main.async {
-//                        for value in json {
-//                            let login: NSDictionary = (value["login"] as? NSDictionary)!
+        let urlPath: String = "https://api.intra.42.fr/v2/users/vlikhotk"
+//        let urlPath: String = "https://api.intra.42.fr/v2/topics"
+        let url = URL(string: urlPath)
+        let request: NSMutableURLRequest = NSMutableURLRequest(url: url!)
+        request.httpMethod = "GET"
+        if getToken.token != nil {
+            request.setValue("Bearer " + getToken.token!, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+                if let response = response {
+                    print("Response--->>>\n")
+                    print(response)
+                }
+                guard let data = data else { return }
+                do {
+                    let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>)
+//                    let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? NSMutableArray)!
+//                    if let json : [NSDictionary] = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>, {
+                        print("\njsonResult----->>>>>\n")
+                        print(jsonResult)
+//                      DispatchQueue.main.async {
+//                          for value in json {
+//                              let login: NSDictionary = (value["login"] as? NSDictionary)!
+//                                self.res.append(result(login: (author["login"] as? String)! , data: (value["created_at"] as? String)!))
+//                          }
+//                            self.res.reloadData()
 //                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+                }
+                catch {
+                    print("\nERROR in DO----->>>>>\n")
+                    print(error)
+                }
+            }
+            session.resume()
+        }
+    }
 
 }
+
+//I tried responseString instead of responseJSON
+//.responseString()
+//Alamofire.request(.GET, "url").authenticate(user: "", password: "").responseJSON() {
+//    (request, response, json, error) in
+//    println(error)
+//    println(json)
+//
+//}
 
