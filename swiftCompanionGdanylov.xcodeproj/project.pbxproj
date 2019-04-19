@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CAE6FD4226A3E2D001BA691 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAE6FD3226A3E2D001BA691 /* StudentView.swift */; };
 		5CD05DB322660C3400267D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DB222660C3400267D0B /* AppDelegate.swift */; };
 		5CD05DB522660C3400267D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DB422660C3400267D0B /* ViewController.swift */; };
 		5CD05DB822660C3400267D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD05DB622660C3400267D0B /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CAE6FD3226A3E2D001BA691 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		5CD05DAF22660C3400267D0B /* swiftCompanionGdanylov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftCompanionGdanylov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD05DB222660C3400267D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CD05DB422660C3400267D0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5CD05DB922660C3400267D0B /* swiftCompanionGdanylov.xcdatamodeld */,
 				5CD05DE322660FCC00267D0B /* Result.swift */,
 				5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */,
+				5CAE6FD3226A3E2D001BA691 /* StudentView.swift */,
 			);
 			path = swiftCompanionGdanylov;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				5CD05DE422660FCC00267D0B /* Result.swift in Sources */,
 				5CD05DBB22660C3400267D0B /* swiftCompanionGdanylov.xcdatamodeld in Sources */,
 				5CD05DB322660C3400267D0B /* AppDelegate.swift in Sources */,
+				5CAE6FD4226A3E2D001BA691 /* StudentView.swift in Sources */,
 				5CF1C2EB22678E62004595F0 /* TokenStructViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

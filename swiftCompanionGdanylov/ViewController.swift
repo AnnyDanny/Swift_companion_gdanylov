@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     @IBAction func searchButton(_ sender: UIButton) {
         print("Button is good")
-        self.performSegue(withIdentifier: "toResultView", sender: self)
+        self.performSegue(withIdentifier: "toStudentView", sender: self)
         getLogin()
     }
     
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
                 if let response = response {
                     print("Response--->>>\n")
-                    print(response)
+//                    print(response)
                 }
                 guard let data = data else { return }
                 do {
@@ -86,6 +86,7 @@ class ViewController: UIViewController {
                     let result = try? decoder.decode(Result.self, from: data)
                     print("\nresult--->>>\n")
                     print(result)
+                    print("\n\n\n\n\n\n\n\n\n\n\n")
                         print("\njsonResult----->>>>>\n")
                         print(jsonResult)
 //                      DispatchQueue.main.async {
@@ -99,6 +100,27 @@ class ViewController: UIViewController {
             session.resume()
         }
     }
-
 }
+    
+//    func sendResult() {
+//        DispatchQueue.main.async {
+//            let storyboard = UIStoryboard(name: "ViewController", bundle: nil)
+//            let controller = storyboard.instantiateViewController(withIdentifier: "Student") as! Student
+//            controller.res = self.result
+//        }
+//    }
+//
+//}
+
+
+
+//func checkAPIResponse() {
+//    DispatchQueue.main.async {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "studentInfo") as! StudentInfoViewController
+//        controller.userData = self.studentInfo
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+//
+//}
 

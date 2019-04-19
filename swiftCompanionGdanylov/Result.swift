@@ -9,58 +9,38 @@
 import Foundation
 import UIKit
 
-
-
 struct Result : Decodable {
-//    var login: String
     var email: String?
-//    var maobile: Int
-//    var level : Int
-    var pool_year : String?
-//    var location : String
+    var first_name : String?
+    var last_name : String?
+    var phone: String?
     var wallet : Int?
-//    var correction : Int
-    var cursus_users : [curcus]?
+    var cursus_users : [Curcus]?
     
     enum CodingKeys: String, CodingKey {
-//        case login
         case email = "email"
-//        case mobile
-//        case level
-        case pool_year = "pool_year"
-//        case location
+        case first_name = "first_name"
+        case last_name = "last_name"
+        case phone = "phone"
         case wallet = "wallet"
         case cursus_users = "cursus_users"
-//        case correction
     }
     struct Skills : Decodable {
-        var level : Double;
+//        var level : Double;
         var name : String;
         enum CodingKeys: String, CodingKey {
-            case level = "level"
+//            case level = "level"
             case name = "name"
         }
     }
 //    var skills = [Skills]()
-    struct curcus : Decodable {
+    struct Curcus : Decodable {
         var skills : [Skills]?
+        var mainLevel : Double?
         
         enum CodingKeys: String, CodingKey {
            case skills = "skills"
+           case mainLevel = "level"
         }
     }
 }
-
-
-class ResultView : UIViewController {
-    
-}
-
-//Optional(["campus_users": <__NSSingleObjectArrayI 0x60000001f130>(
-//    {
-//    "campus_id" = 8;
-//    id = 20843;
-//    "is_primary" = 1;
-//    "user_id" = 30796;
-//}
-
