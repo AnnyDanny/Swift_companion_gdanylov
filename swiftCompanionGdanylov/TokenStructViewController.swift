@@ -17,24 +17,3 @@ struct GetToken {
     var token : String?
 }
 
-//extension Tweet: CustomStringConvertible {
-//    var description: String {
-//        return "\(name), \(desc), \(date)"
-//    }
-//}
-
-class TokenStructViewController : UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        textField.text = "scholl 42"
-//        textField.delegate = self as? UITextFieldDelegate
-//        textField.returnKeyType = .done
-//        //        let vika = Tweet(name : "vika", desc : "vika", date: "vika")
-//        //        data.append(vika)
-//        autorizationRequest()
-//        // Do any additional setup after loading the view, typically from a nib.
-    }
-}

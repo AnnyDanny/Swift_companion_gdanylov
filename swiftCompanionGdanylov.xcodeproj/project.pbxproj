@@ -15,7 +15,7 @@
 		5CD05DC022660C3400267D0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD05DBE22660C3400267D0B /* LaunchScreen.storyboard */; };
 		5CD05DCB22660C3400267D0B /* swiftCompanionGdanylovTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DCA22660C3400267D0B /* swiftCompanionGdanylovTests.swift */; };
 		5CD05DD622660C3400267D0B /* swiftCompanionGdanylovUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DD522660C3400267D0B /* swiftCompanionGdanylovUITests.swift */; };
-		5CD05DE422660FCC00267D0B /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DE322660FCC00267D0B /* ResultView.swift */; };
+		5CD05DE422660FCC00267D0B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DE322660FCC00267D0B /* Result.swift */; };
 		5CF1C2EB22678E62004595F0 /* TokenStructViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 		5CD05DD122660C3400267D0B /* swiftCompanionGdanylovUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftCompanionGdanylovUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD05DD522660C3400267D0B /* swiftCompanionGdanylovUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftCompanionGdanylovUITests.swift; sourceTree = "<group>"; };
 		5CD05DD722660C3400267D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CD05DE322660FCC00267D0B /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		5CD05DE322660FCC00267D0B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStructViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +110,7 @@
 				5CD05DBE22660C3400267D0B /* LaunchScreen.storyboard */,
 				5CD05DC122660C3400267D0B /* Info.plist */,
 				5CD05DB922660C3400267D0B /* swiftCompanionGdanylov.xcdatamodeld */,
-				5CD05DE322660FCC00267D0B /* ResultView.swift */,
+				5CD05DE322660FCC00267D0B /* Result.swift */,
 				5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */,
 			);
 			path = swiftCompanionGdanylov;
@@ -269,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD05DB522660C3400267D0B /* ViewController.swift in Sources */,
-				5CD05DE422660FCC00267D0B /* ResultView.swift in Sources */,
+				5CD05DE422660FCC00267D0B /* Result.swift in Sources */,
 				5CD05DBB22660C3400267D0B /* swiftCompanionGdanylov.xcdatamodeld in Sources */,
 				5CD05DB322660C3400267D0B /* AppDelegate.swift in Sources */,
 				5CF1C2EB22678E62004595F0 /* TokenStructViewController.swift in Sources */,

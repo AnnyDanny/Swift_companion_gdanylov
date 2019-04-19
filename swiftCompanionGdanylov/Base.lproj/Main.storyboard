@@ -48,6 +48,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="C5M-32-OEC"/>
                     <connections>
+                        <outlet property="enterLogin" destination="szS-jR-uSO" id="e8N-3g-gFq"/>
                         <segue destination="v3L-DR-p5P" kind="show" identifier="toResultView" id="xpa-tB-G0J"/>
                     </connections>
                 </viewController>

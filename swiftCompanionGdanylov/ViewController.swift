@@ -7,34 +7,33 @@
 //
 
 import UIKit
-
-//var getToken = GetToken()
+import Foundation
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var enterLogin: UITextField!
+    
     @IBAction func searchButton(_ sender: UIButton) {
         print("Button is good")
         self.performSegue(withIdentifier: "toResultView", sender: self)
+        getLogin()
     }
     
     var getToken = GetToken()
-    var res: [result] = []
+    var res: [Result] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View has loaded")
         autorizationToken()
-//        getLogin()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
     func autorizationToken() {
-//        var tokenInner = ""
         let bearer = ((getToken.client_id + ":" + getToken.client_secret).data(using: String.Encoding.utf8))!.base64EncodedString(options: NSData.Base64EncodingOptions())
         let url = URL(string: "https://api.intra.42.fr/oauth/token")
         var request = URLRequest(url: url!)
@@ -60,17 +59,16 @@ class ViewController: UIViewController {
                     print(error)
                 }
             }
-            self.getLogin()
         }
         task.resume()
-//        getLogin()
     }
     
     func getLogin() {
+        let login = enterLogin.text
+        let urlLogin = "https://api.intra.42.fr/v2/users/"
         print("\nStarted get login---->>>>>\n")
-//        let urlPath: String = "https://profile.intra.42.fr/users/vlikhotk"
-        let urlPath: String = "https://api.intra.42.fr/v2/users/vlikhotk"
-//        let urlPath: String = "https://api.intra.42.fr/v2/topics"
+        let urlPath: String = urlLogin + login!
+//        let urlPath: String = "https://cdn.intra.42.fr/users/gdanylov.jpg"
         let url = URL(string: urlPath)
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
@@ -84,16 +82,13 @@ class ViewController: UIViewController {
                 guard let data = data else { return }
                 do {
                     let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>)
-//                    let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? NSMutableArray)!
-//                    if let json : [NSDictionary] = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>, {
+                    let decoder = JSONDecoder()
+                    let result = try? decoder.decode(Result.self, from: data)
+                    print("\nresult--->>>\n")
+                    print(result)
                         print("\njsonResult----->>>>>\n")
                         print(jsonResult)
 //                      DispatchQueue.main.async {
-//                          for value in json {
-//                              let login: NSDictionary = (value["login"] as? NSDictionary)!
-//                                self.res.append(result(login: (author["login"] as? String)! , data: (value["created_at"] as? String)!))
-//                          }
-//                            self.res.reloadData()
 //                        }
                 }
                 catch {
@@ -106,13 +101,4 @@ class ViewController: UIViewController {
     }
 
 }
-
-//I tried responseString instead of responseJSON
-//.responseString()
-//Alamofire.request(.GET, "url").authenticate(user: "", password: "").responseJSON() {
-//    (request, response, json, error) in
-//    println(error)
-//    println(json)
-//
-//}
 
