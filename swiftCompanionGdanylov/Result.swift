@@ -15,6 +15,7 @@ struct Result : Decodable {
     var last_name : String?
     var phone: String?
     var wallet : Int?
+    var imageUrl : URL
     var cursus_users : [Curcus]?
     
     enum CodingKeys: String, CodingKey {
@@ -23,24 +24,27 @@ struct Result : Decodable {
         case last_name = "last_name"
         case phone = "phone"
         case wallet = "wallet"
+        case imageUrl = "image_url"
         case cursus_users = "cursus_users"
     }
     struct Skills : Decodable {
-//        var level : Double;
+//        var levelSkills : Double;
         var name : String;
         enum CodingKeys: String, CodingKey {
-//            case level = "level"
+//            case levelSkills = "level"
             case name = "name"
         }
     }
 //    var skills = [Skills]()
     struct Curcus : Decodable {
+        var grade : String?
         var skills : [Skills]?
-        var mainLevel : Double?
+        var level : Double?
         
         enum CodingKeys: String, CodingKey {
+           case grade = "grade"
            case skills = "skills"
-           case mainLevel = "level"
+           case level = "level"
         }
     }
 }

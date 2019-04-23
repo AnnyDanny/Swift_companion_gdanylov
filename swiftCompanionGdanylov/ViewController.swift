@@ -11,16 +11,18 @@ import Foundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var enterLogin: UITextField!
     
     @IBAction func searchButton(_ sender: UIButton) {
-        print("Button is good")
-        self.performSegue(withIdentifier: "toStudentView", sender: self)
-        getLogin()
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        self.getLogin()
     }
     
     var getToken = GetToken()
-    var res: [Result] = []
+    var res : Result?
+    let downloadGroup = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +48,7 @@ class ViewController: UIViewController {
             if data != nil {
                 do {
                     if let get : NSDictionary = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                        print("\nGet---->>>>\n")
-                        print(get)
                         self.getToken.token = get["access_token"] as? String
-                        
-                        print("\nToken--->>>>>\n")
-                        print(self.getToken.token as Any)
                     }
                 }
                 catch (let error) {
@@ -66,42 +63,113 @@ class ViewController: UIViewController {
     func getLogin() {
         let login = enterLogin.text
         let urlLogin = "https://api.intra.42.fr/v2/users/"
-        print("\nStarted get login---->>>>>\n")
         let urlPath: String = urlLogin + login!
-//        let urlPath: String = "https://cdn.intra.42.fr/users/gdanylov.jpg"
         let url = URL(string: urlPath)
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
         if getToken.token != nil {
-            request.setValue("Bearer " + getToken.token!, forHTTPHeaderField: "Authorization")
-            let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-                if let response = response {
-                    print("Response--->>>\n")
-//                    print(response)
-                }
-                guard let data = data else { return }
-                do {
-                    let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>)
-                    let decoder = JSONDecoder()
-                    let result = try? decoder.decode(Result.self, from: data)
-                    print("\nresult--->>>\n")
-                    print(result)
-                    print("\n\n\n\n\n\n\n\n\n\n\n")
+            DispatchQueue.global(qos: .userInitiated).async {
+                request.setValue("Bearer " + self.getToken.token!, forHTTPHeaderField: "Authorization")
+                let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+                    if let response = response {
+                        print("Response--->>>\n")
+                        print(response)
+                    }
+                    guard let data = data else { return }
+                    do {
+                        let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>)
+                        let decoder = JSONDecoder()
+                        let result = try? decoder.decode(Result.self, from: data)
+                        print("\nresult--->>>\n")
+                        self.res = result
+                        print(self.res)
                         print("\njsonResult----->>>>>\n")
                         print(jsonResult)
-//                      DispatchQueue.main.async {
-//                        }
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let controller = storyboard.instantiateViewController(withIdentifier: "Student") as! Student
+                            controller.res = self.res
+                            self.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    }
+                    catch {
+                        print("\nERROR in DO----->>>>>\n")
+                        print(error)
+                    }
                 }
-                catch {
-                    print("\nERROR in DO----->>>>>\n")
-                    print(error)
-                }
+                session.resume()
             }
-            session.resume()
         }
     }
 }
+
+//            request.setValue("Bearer " + getToken.token!, forHTTPHeaderField: "Authorization")
+//            let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+//                if let response = response {
+//                    print("Response--->>>\n")
+//                    print(response)
+//                }
+//                guard let data = data else { return }
+//                do {
+//                    let jsonResult = (try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>)
+//                    let decoder = JSONDecoder()
+//                    let result = try? decoder.decode(Result.self, from: data)
+////                    sendRes(data: result)
+////                    print("\n\n\n\n\nres_first-------->>>>\n\n\n\n")
+////                    print(result?.first_name)
+////                    print(res.first_name)
+//                    print("\n\n\n\n\n")
+////                    self.res.append(Result(firs: (author["login"] as? String)! , data: (value["created_at"] as? String)!, msgUrl: (value["messages_url"] as? String)!))
+//                    print("\nresult--->>>\n")
+//                    print(result)
+//                    print("\n\n\n\n\n\n\n\n\n\n\n")
+//                        print("\njsonResult----->>>>>\n")
+//                        print(jsonResult)
+////                      DispatchQueue.main.async {
+////                        }
+//                }
+//                catch {
+//                    print("\nERROR in DO----->>>>>\n")
+//                    print(error)
+//                }
+//            }
+//            session.resume()
+//        }
+//    }
+//}
+//    func sendRes(data: MyData) {
+//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            (segue.destination as? Student)?.firstNameLabel.text =
+//
+//        }
+//    }
+//}
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is Student {
+//            let vc = segue.destination as? Student
+//            vc?.firstNameLabel =
+//        }
+//    }
+//}
+
+//extension ViewController {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        (segue.destination as? Student)?.firstNameLabel.text = self.res?.first_name
+//        (segue.destination as? Student)?.msgUrl = self.msgUrl
+        
+//    }
+//}
+
+//override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+//{
+//    if segue.destination is TertiaryViewController
+//    {
+//        let vc = segue.destination as? TertiaryViewController
+//        vc?.username = "Arthur Dent"
+//    }
+//}
+
 //    func sendResult() {
 //        DispatchQueue.main.async {
 //            let storyboard = UIStoryboard(name: "ViewController", bundle: nil)
