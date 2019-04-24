@@ -17,6 +17,7 @@ struct Result : Decodable {
     var wallet : Int?
     var imageUrl : URL
     var cursus_users : [Curcus]?
+    var projects : [Project]?
     
     enum CodingKeys: String, CodingKey {
         case email = "email"
@@ -26,25 +27,54 @@ struct Result : Decodable {
         case wallet = "wallet"
         case imageUrl = "image_url"
         case cursus_users = "cursus_users"
+        case projects = "projects_users"
     }
-    struct Skills : Decodable {
-//        var levelSkills : Double;
-        var name : String;
-        enum CodingKeys: String, CodingKey {
-//            case levelSkills = "level"
-            case name = "name"
-        }
+}
+
+struct ProjectName : Decodable {
+    var id : Int
+    var name : String
+    var parent_id : Int?
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case parent_id
     }
+}
+
+struct Project : Decodable {
+    var status : String
+    var final_mark : Int?
+    var validated : Bool?
+    var projectName : ProjectName
+    var cursus_ids : [Int]
+    //        var childProjects = [Project]()
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case final_mark = "final_mark"
+        case validated = "validated?"
+        case projectName = "project"
+        case cursus_ids = "cursus_ids"
+    }
+}
+
+struct Skills : Decodable {
+    //        var levelSkills : Double;
+    var name : String;
+    enum CodingKeys: String, CodingKey {
+        //            case levelSkills = "level"
+        case name = "name"
+    }
+}
 //    var skills = [Skills]()
-    struct Curcus : Decodable {
-        var grade : String?
-        var skills : [Skills]?
-        var level : Double?
-        
-        enum CodingKeys: String, CodingKey {
-           case grade = "grade"
-           case skills = "skills"
-           case level = "level"
-        }
+struct Curcus : Decodable {
+    var grade : String?
+    var skills : [Skills]?
+    var level : Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case grade = "grade"
+        case skills = "skills"
+        case level = "level"
     }
 }

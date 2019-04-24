@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ts2-uM-9pz" customClass="ProjectTableViewCell" customModule="swiftCompanionGdanylov" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-w1-wp9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0A-iq-EWE" userLabel="nameProject">
+                            <rect key="frame" x="14" y="40" width="98" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egv-9Y-LRk" userLabel="statusProject">
+                            <rect key="frame" x="219" y="40" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wX-Y7-vKv" userLabel="markProject">
+                            <rect key="frame" x="310" y="40" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="q0A-iq-EWE" firstAttribute="top" secondItem="3JA-w1-wp9" secondAttribute="top" constant="40" id="30a-6L-KuG"/>
+                        <constraint firstItem="8wX-Y7-vKv" firstAttribute="leading" secondItem="Egv-9Y-LRk" secondAttribute="trailing" constant="49" id="APM-Md-dA4"/>
+                        <constraint firstItem="Egv-9Y-LRk" firstAttribute="top" secondItem="3JA-w1-wp9" secondAttribute="top" constant="40" id="E3O-yl-w6V"/>
+                        <constraint firstAttribute="trailing" secondItem="8wX-Y7-vKv" secondAttribute="trailing" constant="23" id="EVM-f5-HKm"/>
+                        <constraint firstItem="q0A-iq-EWE" firstAttribute="leading" secondItem="3JA-w1-wp9" secondAttribute="leading" constant="14" id="FKq-AE-fz6"/>
+                        <constraint firstItem="8wX-Y7-vKv" firstAttribute="top" secondItem="3JA-w1-wp9" secondAttribute="top" constant="40" id="UCU-Fu-xHa"/>
+                        <constraint firstItem="Egv-9Y-LRk" firstAttribute="leading" secondItem="q0A-iq-EWE" secondAttribute="trailing" constant="107" id="dXb-hA-4gD"/>
+                        <constraint firstAttribute="bottom" secondItem="8wX-Y7-vKv" secondAttribute="bottom" constant="39" id="lY1-ti-bL8"/>
+                        <constraint firstAttribute="bottom" secondItem="q0A-iq-EWE" secondAttribute="bottom" constant="39" id="t3X-HL-Hi3"/>
+                        <constraint firstAttribute="bottom" secondItem="Egv-9Y-LRk" secondAttribute="bottom" constant="39" id="zCF-dG-Hob"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3JA-w1-wp9" secondAttribute="bottom" id="2Cc-do-wKX"/>
+                <constraint firstItem="3JA-w1-wp9" firstAttribute="top" secondItem="Ts2-uM-9pz" secondAttribute="top" id="2hv-fU-0Ha"/>
+                <constraint firstItem="3JA-w1-wp9" firstAttribute="leading" secondItem="1rg-SQ-4Uh" secondAttribute="leading" id="5Fe-Fl-HyY"/>
+                <constraint firstItem="1rg-SQ-4Uh" firstAttribute="trailing" secondItem="3JA-w1-wp9" secondAttribute="trailing" id="ehA-Hf-neX"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="1rg-SQ-4Uh"/>
+            <connections>
+                <outlet property="markProject" destination="8wX-Y7-vKv" id="dCg-MV-og9"/>
+                <outlet property="nameProject" destination="q0A-iq-EWE" id="ZO6-wZ-LoF"/>
+                <outlet property="statusProject" destination="Egv-9Y-LRk" id="x1J-vP-r9F"/>
+            </connections>
+            <point key="canvasLocation" x="141.5" y="25"/>
+        </view>
+    </objects>
+</document>

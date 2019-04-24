@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-class Student : UIViewController {
+class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var res : Result?
     
+    @IBOutlet weak var projectView: UITableView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
@@ -23,6 +24,10 @@ class Student : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        projectView.delegate = self
+        projectView.dataSource = self
+        let nib = UINib.init(nibName: "ProjectTableViewCell", bundle: nil)
+        self.projectView.register(nib, forCellReuseIdentifier: "ProjectTableViewCell")
         setRes()
     }
     
@@ -51,4 +56,22 @@ class Student : UIViewController {
             levelLabel.text = "0.0."
         }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (res?.projects?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
+        cell.nameProject.text = res?.projects?[indexPath.section].projectName.name
+        cell.statusProject.text = res?.projects?[indexPath.section].status
+//        cell.markProject.text = res?.projects?[indexPath.section].final_mark
+        if let finalMark = res?.projects?[indexPath.section].final_mark {
+            cell.markProject.text = String(describing: finalMark)
+        }
+        return cell
+    }
+//    let cell = tableView.dequeueReusableCell(withIdentifier: "projectSectionName", for: indexPath) as! ProjectsHeaderTableViewCell
+//    cell.projectSectionName.text = userData?.validatedProjects?[indexPath.section].projectNameStruct.name
+    
 }
