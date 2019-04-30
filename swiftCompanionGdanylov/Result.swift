@@ -59,14 +59,14 @@ struct Project : Decodable {
 }
 
 struct Skills : Decodable {
-    //        var levelSkills : Double;
-    var name : String;
+    var levelSkill : Double;
+    var nameSkill : String;
     enum CodingKeys: String, CodingKey {
-        //            case levelSkills = "level"
-        case name = "name"
+        case levelSkill = "level"
+        case nameSkill = "name"
     }
 }
-//    var skills = [Skills]()
+
 struct Curcus : Decodable {
     var grade : String?
     var skills : [Skills]?

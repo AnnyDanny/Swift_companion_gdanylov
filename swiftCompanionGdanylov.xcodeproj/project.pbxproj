@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		527E6B68CBDE6C180345EBFF /* Pods_swiftCompanionGdanylov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD1D2B6AF5B234EC1844C74 /* Pods_swiftCompanionGdanylov.framework */; };
 		5C2179872270CA0C00C4EBC6 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2179862270CA0C00C4EBC6 /* ProjectTableViewCell.swift */; };
 		5C2179892270CA4800C4EBC6 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2179882270CA4800C4EBC6 /* ProjectTableViewCell.xib */; };
 		5CAE6FD4226A3E2D001BA691 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAE6FD3226A3E2D001BA691 /* StudentView.swift */; };
@@ -20,6 +21,8 @@
 		5CD05DD622660C3400267D0B /* swiftCompanionGdanylovUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DD522660C3400267D0B /* swiftCompanionGdanylovUITests.swift */; };
 		5CD05DE422660FCC00267D0B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD05DE322660FCC00267D0B /* Result.swift */; };
 		5CF1C2EB22678E62004595F0 /* TokenStructViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */; };
+		9E9046210831968F7DC46702 /* Pods_swiftCompanionGdanylovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB888DF8CA5BE61BA9100C6 /* Pods_swiftCompanionGdanylovUITests.framework */; };
+		D0D6D5CD0891950FB05D7EB9 /* Pods_swiftCompanionGdanylovTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3BE6313CFA440082BD8FC3 /* Pods_swiftCompanionGdanylovTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5C844271227354050031E199 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		11714A121805DE84AF701086 /* Pods-swiftCompanionGdanylov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylov.debug.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylov/Pods-swiftCompanionGdanylov.debug.xcconfig"; sourceTree = "<group>"; };
+		3CD1D2B6AF5B234EC1844C74 /* Pods_swiftCompanionGdanylov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftCompanionGdanylov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4430400AA6CF08D20F15C888 /* Pods-swiftCompanionGdanylovUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylovUITests.debug.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylovUITests/Pods-swiftCompanionGdanylovUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E02F38D653B620B87BB167F /* Pods-swiftCompanionGdanylovTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylovTests.release.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylovTests/Pods-swiftCompanionGdanylovTests.release.xcconfig"; sourceTree = "<group>"; };
+		56E228D67D877E0D0B28FA2D /* Pods-swiftCompanionGdanylovTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylovTests.debug.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylovTests/Pods-swiftCompanionGdanylovTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C2179862270CA0C00C4EBC6 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		5C2179882270CA4800C4EBC6 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		5CAE6FD3226A3E2D001BA691 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
@@ -59,6 +80,10 @@
 		5CD05DD722660C3400267D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CD05DE322660FCC00267D0B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStructViewController.swift; sourceTree = "<group>"; };
+		7DB888DF8CA5BE61BA9100C6 /* Pods_swiftCompanionGdanylovUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftCompanionGdanylovUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81F420314A59F868C0814400 /* Pods-swiftCompanionGdanylovUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylovUITests.release.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylovUITests/Pods-swiftCompanionGdanylovUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9B074B9EB3CA1153762E8F57 /* Pods-swiftCompanionGdanylov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylov.release.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylov/Pods-swiftCompanionGdanylov.release.xcconfig"; sourceTree = "<group>"; };
+		EB3BE6313CFA440082BD8FC3 /* Pods_swiftCompanionGdanylovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftCompanionGdanylovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527E6B68CBDE6C180345EBFF /* Pods_swiftCompanionGdanylov.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D6D5CD0891950FB05D7EB9 /* Pods_swiftCompanionGdanylovTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +107,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9046210831968F7DC46702 /* Pods_swiftCompanionGdanylovUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0268ED4EF96C35A4747FA459 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11714A121805DE84AF701086 /* Pods-swiftCompanionGdanylov.debug.xcconfig */,
+				9B074B9EB3CA1153762E8F57 /* Pods-swiftCompanionGdanylov.release.xcconfig */,
+				56E228D67D877E0D0B28FA2D /* Pods-swiftCompanionGdanylovTests.debug.xcconfig */,
+				4E02F38D653B620B87BB167F /* Pods-swiftCompanionGdanylovTests.release.xcconfig */,
+				4430400AA6CF08D20F15C888 /* Pods-swiftCompanionGdanylovUITests.debug.xcconfig */,
+				81F420314A59F868C0814400 /* Pods-swiftCompanionGdanylovUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5CD05DA622660C3400267D0B = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +134,8 @@
 				5CD05DC922660C3400267D0B /* swiftCompanionGdanylovTests */,
 				5CD05DD422660C3400267D0B /* swiftCompanionGdanylovUITests */,
 				5CD05DB022660C3400267D0B /* Products */,
+				0268ED4EF96C35A4747FA459 /* Pods */,
+				9C004DE29773FE03B33A212A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +186,16 @@
 			path = swiftCompanionGdanylovUITests;
 			sourceTree = "<group>";
 		};
+		9C004DE29773FE03B33A212A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CD1D2B6AF5B234EC1844C74 /* Pods_swiftCompanionGdanylov.framework */,
+				EB3BE6313CFA440082BD8FC3 /* Pods_swiftCompanionGdanylovTests.framework */,
+				7DB888DF8CA5BE61BA9100C6 /* Pods_swiftCompanionGdanylovUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CD05DDA22660C3400267D0B /* Build configuration list for PBXNativeTarget "swiftCompanionGdanylov" */;
 			buildPhases = (
+				D7DC695733C98FE7220408F4 /* [CP] Check Pods Manifest.lock */,
 				5CD05DAB22660C3400267D0B /* Sources */,
 				5CD05DAC22660C3400267D0B /* Frameworks */,
 				5CD05DAD22660C3400267D0B /* Resources */,
+				34821C9306E2DDDDD4ED74FE /* [CP] Embed Pods Frameworks */,
+				5C844271227354050031E199 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CD05DDD22660C3400267D0B /* Build configuration list for PBXNativeTarget "swiftCompanionGdanylovTests" */;
 			buildPhases = (
+				5DEABF67A110144CA7FD437F /* [CP] Check Pods Manifest.lock */,
 				5CD05DC222660C3400267D0B /* Sources */,
 				5CD05DC322660C3400267D0B /* Frameworks */,
 				5CD05DC422660C3400267D0B /* Resources */,
@@ -185,6 +242,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CD05DE022660C3400267D0B /* Build configuration list for PBXNativeTarget "swiftCompanionGdanylovUITests" */;
 			buildPhases = (
+				9DA2D1DFBDA6FE551442B7C7 /* [CP] Check Pods Manifest.lock */,
 				5CD05DCD22660C3400267D0B /* Sources */,
 				5CD05DCE22660C3400267D0B /* Frameworks */,
 				5CD05DCF22660C3400267D0B /* Resources */,
@@ -272,6 +330,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34821C9306E2DDDDD4ED74FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftCompanionGdanylov/Pods-swiftCompanionGdanylov-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftCompanionGdanylov/Pods-swiftCompanionGdanylov-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DEABF67A110144CA7FD437F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftCompanionGdanylovTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DA2D1DFBDA6FE551442B7C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftCompanionGdanylovUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7DC695733C98FE7220408F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftCompanionGdanylov-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CD05DAB22660C3400267D0B /* Sources */ = {
@@ -448,6 +581,7 @@
 		};
 		5CD05DDB22660C3400267D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11714A121805DE84AF701086 /* Pods-swiftCompanionGdanylov.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -462,6 +596,7 @@
 		};
 		5CD05DDC22660C3400267D0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B074B9EB3CA1153762E8F57 /* Pods-swiftCompanionGdanylov.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +611,7 @@
 		};
 		5CD05DDE22660C3400267D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56E228D67D877E0D0B28FA2D /* Pods-swiftCompanionGdanylovTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +628,7 @@
 		};
 		5CD05DDF22660C3400267D0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E02F38D653B620B87BB167F /* Pods-swiftCompanionGdanylovTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +645,7 @@
 		};
 		5CD05DE122660C3400267D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4430400AA6CF08D20F15C888 /* Pods-swiftCompanionGdanylovUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +661,7 @@
 		};
 		5CD05DE222660C3400267D0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81F420314A59F868C0814400 /* Pods-swiftCompanionGdanylovUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

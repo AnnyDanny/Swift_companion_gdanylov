@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
+import Charts
 
 class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var res : Result?
+    var months: [String]!
     
     @IBOutlet weak var projectView: UITableView!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -22,6 +24,9 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var lineChartView: LineChartView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         projectView.delegate = self
@@ -29,7 +34,37 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
         let nib = UINib.init(nibName: "ProjectTableViewCell", bundle: nil)
         self.projectView.register(nib, forCellReuseIdentifier: "ProjectTableViewCell")
         setRes()
+        addForCharts()
+        
+//        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+//        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+
+//        setChart(dataPoints: months, values: unitsSold)
     }
+    
+    func addForCharts() {
+        print("\n\nhello charts--->>>\n\n")
+        if res?.cursus_users != nil && (res?.cursus_users?.count)! > 0 && (res?.cursus_users?[0].skills?.contains(where: {$0.levelSkill > 0 }))! {
+            let dataPoint = res!.cursus_users?[0].skills?.map {$0.nameSkill}
+            let values = res!.cursus_users?[0].skills?.map {$0.levelSkill}
+            print("\n\ndataPoint--->>> \(dataPoint)\n\n")
+            print("values-->>> \(values)\n\n")
+            guard dataPoint != nil && values != nil else {
+                return
+            }
+            setChart(dataPoints: dataPoint!, values: values!)
+        }
+    }
+    
+//    if userData?.cursusUsers != nil && (userData?.cursusUsers?.count)! > 0 && (userData?.cursusUsers?[0].skills.contains(where: {$0.skillLevel > 0
+//    }))! {
+//    let dataPoints = userData!.cursusUsers?[0].skills.map { $0.skillName }
+//    let values = userData!.cursusUsers?[0].skills.map { $0.skillLevel}
+//    guard dataPoints != nil && values != nil else {
+//    return
+//    }
+//    setChart(dataPoints: dataPoints!, values: values!)
+//    }
     
     func setRes() {
         let dataImage = try? Data(contentsOf: (res?.imageUrl)!)
@@ -63,15 +98,62 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
-        cell.nameProject.text = res?.projects?[indexPath.section].projectName.name
-        cell.statusProject.text = res?.projects?[indexPath.section].status
+        cell.nameProject.text = res?.projects?[indexPath.row].projectName.name
+        cell.statusProject.text = res?.projects?[indexPath.row].status
 //        cell.markProject.text = res?.projects?[indexPath.section].final_mark
-        if let finalMark = res?.projects?[indexPath.section].final_mark {
+        if let finalMark = res?.projects?[indexPath.row].final_mark {
             cell.markProject.text = String(describing: finalMark)
         }
         return cell
     }
-//    let cell = tableView.dequeueReusableCell(withIdentifier: "projectSectionName", for: indexPath) as! ProjectsHeaderTableViewCell
-//    cell.projectSectionName.text = userData?.validatedProjects?[indexPath.section].projectNameStruct.name
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        var colors: [UIColor] = []
+        
+        for _ in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Skills")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        
+
+        lineChartView.data = lineChartData
+        
+        lineChartDataSet.colors = colors
+    }
+    
+//    func setChart(dataPoints: [String], values: [Double]) {
+//        barChartView.noDataText = "You need to provide data for the chart."
+//
+//        var dataEntries: [BarChartDataEntry] = []
+//        for i in 0..<dataPoints.count {
+//            let dataEntry = BarChartDataEntry(x: values[i], y: values[i])
+//            dataEntries.append(dataEntry)
+//        }
+//
+//        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
+//        let chartData = BarChartData
+//        barChartView.data = chartData
+//    }
+    
+    
+    
+    
+    
+    
     
 }

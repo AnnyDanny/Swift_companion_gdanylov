@@ -1,0 +1,6 @@
+framework module Pods_swiftCompanionGdanylovTests {
+  umbrella header "Pods-swiftCompanionGdanylovTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -72,7 +72,7 @@ class ViewController: UIViewController {
                 request.setValue("Bearer " + self.getToken.token!, forHTTPHeaderField: "Authorization")
                 let session = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
                     if let response = response {
-                        print("Response--->>>\n")
+//                        print("Response--->>>\n")
                         print(response)
                     }
                     guard let data = data else { return }
@@ -82,9 +82,11 @@ class ViewController: UIViewController {
                         let result = try? decoder.decode(Result.self, from: data)
                         print("\nresult--->>>\n")
                         self.res = result
-                        print(self.res)
-                        print("\njsonResult----->>>>>\n")
-                        print(jsonResult)
+//                        print(self.res)
+//                        print("\n\nskiils---->>>\n\n")
+//                        print(self.res?.cursus_users?[0].skills)
+//                        print("\njsonResult----->>>>>\n")
+//                        print(jsonResult)
                         DispatchQueue.main.async {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let controller = storyboard.instantiateViewController(withIdentifier: "Student") as! Student
