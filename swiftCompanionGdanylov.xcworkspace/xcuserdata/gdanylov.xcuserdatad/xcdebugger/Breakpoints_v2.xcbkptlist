@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "swiftCompanionGdanylov/StudentView.swift"
-            timestampString = "578337320.479938"
+            timestampString = "579015433.518229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "addForCharts()"
             landmarkType = "7">
          </BreakpointContent>

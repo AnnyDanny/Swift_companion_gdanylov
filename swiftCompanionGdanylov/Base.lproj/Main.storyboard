@@ -198,16 +198,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KdP-I2-xtP" userLabel="Table View project">
-                                        <rect key="frame" x="8" y="281" width="360" height="128"/>
+                                        <rect key="frame" x="8" y="281" width="360" height="150"/>
                                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="5ku-Dt-yGl"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="v3L-DR-p5P" id="z0F-GD-qb2"/>
                                             <outlet property="delegate" destination="v3L-DR-p5P" id="msy-D0-BUp"/>
                                         </connections>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-Lq-hn0" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="409" width="376" height="194"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hC-Lq-hn0" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="431" width="376" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="vfX-EZ-jq0"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -218,20 +224,21 @@
                                     <constraint firstItem="BuF-k5-EuR" firstAttribute="leading" secondItem="o2T-3c-SN8" secondAttribute="trailing" constant="2.5" id="C5d-jU-vG9"/>
                                     <constraint firstAttribute="bottom" secondItem="nbv-YK-sVR" secondAttribute="bottom" constant="359" id="CFB-Io-Rw5"/>
                                     <constraint firstAttribute="trailing" secondItem="BuF-k5-EuR" secondAttribute="trailing" id="EUC-RX-MQK"/>
-                                    <constraint firstAttribute="bottom" secondItem="KdP-I2-xtP" secondAttribute="bottom" constant="194" id="FAA-O1-DYM"/>
                                     <constraint firstItem="KdP-I2-xtP" firstAttribute="top" secondItem="dd6-gN-FaG" secondAttribute="bottom" constant="8" id="FPK-bF-0Wf"/>
                                     <constraint firstAttribute="trailing" secondItem="7hC-Lq-hn0" secondAttribute="trailing" id="GLX-Ak-m8w"/>
+                                    <constraint firstItem="7hC-Lq-hn0" firstAttribute="top" secondItem="KdP-I2-xtP" secondAttribute="bottom" id="N6v-QZ-LA5"/>
                                     <constraint firstItem="nbv-YK-sVR" firstAttribute="top" secondItem="BuF-k5-EuR" secondAttribute="bottom" constant="8" id="Q5Y-Zt-4R9"/>
-                                    <constraint firstAttribute="bottom" secondItem="7hC-Lq-hn0" secondAttribute="bottom" id="YeH-Jh-CKL"/>
                                     <constraint firstItem="KdP-I2-xtP" firstAttribute="leading" secondItem="Xfc-4S-pjh" secondAttribute="leading" constant="8" id="aL4-Jf-UMr"/>
                                     <constraint firstItem="dd6-gN-FaG" firstAttribute="leading" secondItem="KdP-I2-xtP" secondAttribute="leading" id="aYf-jL-jDI"/>
                                     <constraint firstItem="BuF-k5-EuR" firstAttribute="top" secondItem="Xfc-4S-pjh" secondAttribute="top" id="bbF-cI-r3v"/>
+                                    <constraint firstAttribute="trailing" secondItem="7hC-Lq-hn0" secondAttribute="trailing" id="cOB-8k-0El"/>
                                     <constraint firstItem="nbv-YK-sVR" firstAttribute="top" secondItem="o2T-3c-SN8" secondAttribute="bottom" constant="8" id="drI-dt-yO9"/>
                                     <constraint firstItem="7hC-Lq-hn0" firstAttribute="leading" secondItem="Xfc-4S-pjh" secondAttribute="leading" id="jMn-qt-wTe"/>
                                     <constraint firstItem="nbv-YK-sVR" firstAttribute="leading" secondItem="Xfc-4S-pjh" secondAttribute="leading" constant="-12" id="me1-Aw-vvc"/>
                                     <constraint firstItem="nbv-YK-sVR" firstAttribute="top" secondItem="BuF-k5-EuR" secondAttribute="bottom" constant="8" id="noN-FG-Uj8"/>
                                     <constraint firstAttribute="trailing" secondItem="KdP-I2-xtP" secondAttribute="trailing" constant="8" id="rj1-jK-hdE"/>
                                     <constraint firstItem="o2T-3c-SN8" firstAttribute="leading" secondItem="Xfc-4S-pjh" secondAttribute="leading" constant="-12" id="wAi-ly-05b"/>
+                                    <constraint firstItem="7hC-Lq-hn0" firstAttribute="leading" secondItem="Xfc-4S-pjh" secondAttribute="leading" id="xWk-Aq-Wmz"/>
                                     <constraint firstAttribute="trailing" secondItem="nbv-YK-sVR" secondAttribute="trailing" constant="-4" id="zKS-Dq-9et"/>
                                 </constraints>
                             </scrollView>
@@ -252,8 +259,8 @@
                         <outlet property="imageView" destination="BuF-k5-EuR" id="4Un-Sw-Fs5"/>
                         <outlet property="lastNameLabel" destination="IDm-XC-ZSs" id="ag2-n7-l0m"/>
                         <outlet property="levelLabel" destination="zPh-Of-sYL" id="C9G-Og-Hfw"/>
-                        <outlet property="lineChartView" destination="7hC-Lq-hn0" id="chC-Aa-yJ7"/>
                         <outlet property="phoneLabel" destination="dlE-M3-mia" id="X4I-A7-8Yw"/>
+                        <outlet property="pieChartView" destination="7hC-Lq-hn0" id="V4U-56-kZ9"/>
                         <outlet property="projectView" destination="KdP-I2-xtP" id="j6V-Na-bLZ"/>
                     </connections>
                 </viewController>

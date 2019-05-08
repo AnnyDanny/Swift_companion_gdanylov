@@ -24,8 +24,10 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    @IBOutlet weak var lineChartView: LineChartView!
+//    @IBOutlet weak var lineChartView: LineChartView!
+//    @IBOutlet weak var barChartView: BarChartView!
     
+    @IBOutlet weak var pieChartView: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,7 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
             guard dataPoint != nil && values != nil else {
                 return
             }
-            setChart(dataPoints: dataPoint!, values: values!)
+            setCharts(dataPoints: dataPoint!, values: values!)
         }
     }
     
@@ -107,12 +109,16 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setCharts(dataPoints: [String], values: [Double]) {
         
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            if values[i] == 0 {
+                continue
+            }
+            let dataEntry = PieChartDataEntry(value: Double(round(1000 * values[i]) / 1000), label: "\(dataPoints[i]) \(values[i])", data:  "test" as AnyObject)
+//            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
             dataEntries.append(dataEntry)
         }
         
@@ -126,14 +132,24 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
             let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
             colors.append(color)
         }
+//        for i in 0..<dataPoints.count {
+//            if values[i] == 0 {
+//                continue
+//            }
+//            let dataEntry = PieChartDataEntry(value: Double(round(1000 * values[i]) / 1000), label: "\(dataPoints[i]) \(values[i])", data:  "test" as AnyObject)
+//            dataEntries.append(dataEntry)
+//        }
         
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Skills")
-        let lineChartData = LineChartData(dataSet: lineChartDataSet)
         
+//        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Skills")
+//        let pieChartData = PieChartData(dataSet: pieChartDataSet)
 
-        lineChartView.data = lineChartData
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "User's skills")
+        let pieChartData = PieChartData(dataSets: [pieChartDataSet])
         
-        lineChartDataSet.colors = colors
+        pieChartView.data = pieChartData
+        
+        pieChartDataSet.colors = colors
     }
     
 //    func setChart(dataPoints: [String], values: [Double]) {

@@ -4,7 +4,7 @@
 target 'swiftCompanionGdanylov' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Charts', '~> 3.0.5'
+  pod 'Charts', '~> 3.1'
   # Pods for swiftCompanionGdanylov
 
   target 'swiftCompanionGdanylovTests' do
