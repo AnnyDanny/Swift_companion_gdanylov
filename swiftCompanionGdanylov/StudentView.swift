@@ -33,7 +33,7 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        scroller.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
+        scroller.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
         projectView.delegate = self
         projectView.dataSource = self
         let nib = UINib.init(nibName: "ProjectTableViewCell", bundle: nil)
@@ -114,6 +114,7 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func setCharts(dataPoints: [String], values: [Double]) {
         
+
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -153,6 +154,43 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
         pieChartView.data = pieChartData
         
         pieChartDataSet.colors = colors
+        
+//        pieChartDataSet.drawIconsEnabled = false
+        pieChartDataSet.sliceSpace = 2
+        pieChartDataSet.xValuePosition = .outsideSlice
+        pieChartDataSet.entryLabelColor = UIColor.black
+        
+        let pFormatter = NumberFormatter()
+        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        pFormatter.percentSymbol = " %"
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        pieChartDataSet.yValuePosition = .outsideSlice
+        pieChartData.setValueTextColor(.black)
+        pieChartData.setValueFont(.systemFont(ofSize: 9))
+//        pieChartView.rotationEnabled = false
+        
+
+        setUpPieChart()
+    }
+    
+    func setUpPieChart() {
+        //let l = pieChartView.legend
+        //l.horizontalAlignment = .right
+        //l.verticalAlignment = .bottom
+        //l.orientation = .vertical
+//        l.xEntrySpace = 0
+//        l.yEntrySpace = 0
+//        l.yOffset = 0
+        self.pieChartView.drawEntryLabelsEnabled = false
+        //        pieChartView.chartDescription?.enabled = false
+        pieChartView.drawHoleEnabled = false
+                pieChartView.rotationAngle = 0
+        //pieChartView.rotationEnabled = false
+        //        pieChartView.isUserInteractionEnabled = false
+        
+        pieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
 //    func setChart(dataPoints: [String], values: [Double]) {
