@@ -15,6 +15,8 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     var res : Result?
     var months: [String]!
     
+    @IBOutlet weak var scroller: UIScrollView!
+    
     @IBOutlet weak var projectView: UITableView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
@@ -31,6 +33,7 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        scroller.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
         projectView.delegate = self
         projectView.dataSource = self
         let nib = UINib.init(nibName: "ProjectTableViewCell", bundle: nil)
