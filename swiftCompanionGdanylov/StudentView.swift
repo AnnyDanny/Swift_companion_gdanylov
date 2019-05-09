@@ -14,6 +14,7 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var res : Result?
     var months: [String]!
+    var image: UIImageView!
     
     @IBOutlet weak var scroller: UIScrollView!
     
@@ -33,12 +34,27 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scroller.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
+//        image = UIImageView(image: UIImage(named: "intra42"))
+        
+//        scroller = UIScrollView(frame: view.bounds)
+//        scroller.backgroundColor = UIColor.lightGray
+//        scroller.contentSize = image.bounds.size
+//        scroller.autoresizingMask = UInt8(UIViewAutoresizing.FlexibleWidth.rawValue) | UIViewAutoresizing.FlexibleHeight
+        
+//        scroller.addSubview(image)
+        
+//        view.addSubview(scroller)
+//        scroller.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
         projectView.delegate = self
         projectView.dataSource = self
         let nib = UINib.init(nibName: "ProjectTableViewCell", bundle: nil)
         self.projectView.register(nib, forCellReuseIdentifier: "ProjectTableViewCell")
-        setRes()
+        if res?.imageUrl != nil {
+            setRes()
+        }
+        else {
+            print("Error. Enter valid login")
+        }
         addForCharts()
         
 //        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
@@ -98,19 +114,38 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (res?.projects?.count)!
+        if res?.projects != nil {
+            return (res?.projects?.count)!
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
-        cell.nameProject.text = res?.projects?[indexPath.row].projectName.name
-        cell.statusProject.text = res?.projects?[indexPath.row].status
+        if res?.projects?[indexPath.row].projectName.name != nil && res?.projects?[indexPath.row].status != nil {
+            cell.nameProject.text = res?.projects?[indexPath.row].projectName.name
+            cell.statusProject.text = res?.projects?[indexPath.row].status
+        }
 //        cell.markProject.text = res?.projects?[indexPath.section].final_mark
-        if let finalMark = res?.projects?[indexPath.row].final_mark {
+        else if let finalMark = res?.projects?[indexPath.row].final_mark {
             cell.markProject.text = String(describing: finalMark)
+        }
+        else {
+            makeAlert()
+            print("Error. This login is not existent")
+            cell.nameProject.text = "This student"
+            cell.statusProject.text = "has not"
+            cell.markProject.text = "projects"
         }
         return cell
     }
+    
+    func makeAlert() {
+        let alert = UIAlertController(title: "Error", message: "This login is not existent", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+    
     
     func setCharts(dataPoints: [String], values: [Double]) {
         

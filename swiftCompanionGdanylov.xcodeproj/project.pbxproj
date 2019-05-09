@@ -23,6 +23,7 @@
 		5CF1C2EB22678E62004595F0 /* TokenStructViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1C2EA22678E62004595F0 /* TokenStructViewController.swift */; };
 		9E9046210831968F7DC46702 /* Pods_swiftCompanionGdanylovUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB888DF8CA5BE61BA9100C6 /* Pods_swiftCompanionGdanylovUITests.framework */; };
 		D0D6D5CD0891950FB05D7EB9 /* Pods_swiftCompanionGdanylovTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3BE6313CFA440082BD8FC3 /* Pods_swiftCompanionGdanylovTests.framework */; };
+		FAEFAE092283992100C8160A /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFAE082283992100C8160A /* MakeAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		81F420314A59F868C0814400 /* Pods-swiftCompanionGdanylovUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylovUITests.release.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylovUITests/Pods-swiftCompanionGdanylovUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B074B9EB3CA1153762E8F57 /* Pods-swiftCompanionGdanylov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftCompanionGdanylov.release.xcconfig"; path = "Target Support Files/Pods-swiftCompanionGdanylov/Pods-swiftCompanionGdanylov.release.xcconfig"; sourceTree = "<group>"; };
 		EB3BE6313CFA440082BD8FC3 /* Pods_swiftCompanionGdanylovTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftCompanionGdanylovTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAEFAE082283992100C8160A /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				5CAE6FD3226A3E2D001BA691 /* StudentView.swift */,
 				5C2179862270CA0C00C4EBC6 /* ProjectTableViewCell.swift */,
 				5C2179882270CA4800C4EBC6 /* ProjectTableViewCell.xib */,
+				FAEFAE082283992100C8160A /* MakeAlert.swift */,
 			);
 			path = swiftCompanionGdanylov;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEFAE092283992100C8160A /* MakeAlert.swift in Sources */,
 				5CD05DB522660C3400267D0B /* ViewController.swift in Sources */,
 				5C2179872270CA0C00C4EBC6 /* ProjectTableViewCell.swift in Sources */,
 				5CD05DE422660FCC00267D0B /* Result.swift in Sources */,
