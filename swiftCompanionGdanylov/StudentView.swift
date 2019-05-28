@@ -27,24 +27,10 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-//    @IBOutlet weak var lineChartView: LineChartView!
-//    @IBOutlet weak var barChartView: BarChartView!
-    
     @IBOutlet weak var pieChartView: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        image = UIImageView(image: UIImage(named: "intra42"))
-        
-//        scroller = UIScrollView(frame: view.bounds)
-//        scroller.backgroundColor = UIColor.lightGray
-//        scroller.contentSize = image.bounds.size
-//        scroller.autoresizingMask = UInt8(UIViewAutoresizing.FlexibleWidth.rawValue) | UIViewAutoresizing.FlexibleHeight
-        
-//        scroller.addSubview(image)
-        
-//        view.addSubview(scroller)
-//        scroller.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
         projectView.delegate = self
         projectView.dataSource = self
         let nib = UINib.init(nibName: "ProjectTableViewCell", bundle: nil)
@@ -56,11 +42,6 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("Error. Enter valid login")
         }
         addForCharts()
-        
-//        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-//        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-
-//        setChart(dataPoints: months, values: unitsSold)
     }
     
     func addForCharts() {
@@ -76,16 +57,6 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
             setCharts(dataPoints: dataPoint!, values: values!)
         }
     }
-    
-//    if userData?.cursusUsers != nil && (userData?.cursusUsers?.count)! > 0 && (userData?.cursusUsers?[0].skills.contains(where: {$0.skillLevel > 0
-//    }))! {
-//    let dataPoints = userData!.cursusUsers?[0].skills.map { $0.skillName }
-//    let values = userData!.cursusUsers?[0].skills.map { $0.skillLevel}
-//    guard dataPoints != nil && values != nil else {
-//    return
-//    }
-//    setChart(dataPoints: dataPoints!, values: values!)
-//    }
     
     func setRes() {
         let dataImage = try? Data(contentsOf: (res?.imageUrl)!)
@@ -121,22 +92,29 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if res == nil {
+            makeAlert()
+            print("Error. This login is not existent")
+//            cell.nameProject.text = "This student"
+//            cell.statusProject.text = "has not"
+//            cell.markProject.text = "projects"
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
         if res?.projects?[indexPath.row].projectName.name != nil && res?.projects?[indexPath.row].status != nil {
             cell.nameProject.text = res?.projects?[indexPath.row].projectName.name
             cell.statusProject.text = res?.projects?[indexPath.row].status
         }
 //        cell.markProject.text = res?.projects?[indexPath.section].final_mark
-        else if let finalMark = res?.projects?[indexPath.row].final_mark {
+        if let finalMark = res?.projects?[indexPath.row].final_mark {
             cell.markProject.text = String(describing: finalMark)
         }
-        else {
-            makeAlert()
-            print("Error. This login is not existent")
-            cell.nameProject.text = "This student"
-            cell.statusProject.text = "has not"
-            cell.markProject.text = "projects"
-        }
+//        else {
+//            makeAlert()
+//            print("Error. This login is not existent")
+//            cell.nameProject.text = "This student"
+//            cell.statusProject.text = "has not"
+//            cell.markProject.text = "projects"
+//        }
         return cell
     }
     
@@ -146,10 +124,7 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
         present(alert, animated: true)
     }
     
-    
     func setCharts(dataPoints: [String], values: [Double]) {
-        
-
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -157,7 +132,6 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
                 continue
             }
             let dataEntry = PieChartDataEntry(value: Double(round(1000 * values[i]) / 1000), label: "\(dataPoints[i]) \(values[i])", data:  "test" as AnyObject)
-//            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
             dataEntries.append(dataEntry)
         }
         
@@ -171,17 +145,6 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
             let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
             colors.append(color)
         }
-//        for i in 0..<dataPoints.count {
-//            if values[i] == 0 {
-//                continue
-//            }
-//            let dataEntry = PieChartDataEntry(value: Double(round(1000 * values[i]) / 1000), label: "\(dataPoints[i]) \(values[i])", data:  "test" as AnyObject)
-//            dataEntries.append(dataEntry)
-//        }
-        
-        
-//        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Skills")
-//        let pieChartData = PieChartData(dataSet: pieChartDataSet)
 
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "User's skills")
         let pieChartData = PieChartData(dataSets: [pieChartDataSet])
@@ -189,8 +152,6 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
         pieChartView.data = pieChartData
         
         pieChartDataSet.colors = colors
-        
-//        pieChartDataSet.drawIconsEnabled = false
         pieChartDataSet.sliceSpace = 2
         pieChartDataSet.xValuePosition = .outsideSlice
         pieChartDataSet.entryLabelColor = UIColor.black
@@ -204,48 +165,13 @@ class Student : UIViewController, UITableViewDelegate, UITableViewDataSource {
         pieChartDataSet.yValuePosition = .outsideSlice
         pieChartData.setValueTextColor(.black)
         pieChartData.setValueFont(.systemFont(ofSize: 9))
-//        pieChartView.rotationEnabled = false
-        
-
         setUpPieChart()
     }
     
     func setUpPieChart() {
-        //let l = pieChartView.legend
-        //l.horizontalAlignment = .right
-        //l.verticalAlignment = .bottom
-        //l.orientation = .vertical
-//        l.xEntrySpace = 0
-//        l.yEntrySpace = 0
-//        l.yOffset = 0
         self.pieChartView.drawEntryLabelsEnabled = false
-        //        pieChartView.chartDescription?.enabled = false
         pieChartView.drawHoleEnabled = false
-                pieChartView.rotationAngle = 0
-        //pieChartView.rotationEnabled = false
-        //        pieChartView.isUserInteractionEnabled = false
-        
+        pieChartView.rotationAngle = 0
         pieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
-    
-//    func setChart(dataPoints: [String], values: [Double]) {
-//        barChartView.noDataText = "You need to provide data for the chart."
-//
-//        var dataEntries: [BarChartDataEntry] = []
-//        for i in 0..<dataPoints.count {
-//            let dataEntry = BarChartDataEntry(x: values[i], y: values[i])
-//            dataEntries.append(dataEntry)
-//        }
-//
-//        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
-//        let chartData = BarChartData
-//        barChartView.data = chartData
-//    }
-    
-    
-    
-    
-    
-    
-    
 }
